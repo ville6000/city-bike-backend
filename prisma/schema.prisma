@@ -13,7 +13,7 @@ datasource db {
 model Station {
   id                Int @default(autoincrement()) @id
   identifier        Int @unique
-  name              String @unique
+  name              String
   address           String?
   city              String?
   operator          String?
@@ -28,10 +28,10 @@ model Journey {
   id                    Int @default(autoincrement()) @id
   departedAt            DateTime
   returnedAt            DateTime
-  departureStation      Station @relation(name: "departedJourneyStation", fields: [departureStationId], references: [identifier])
+  departureStation      Station? @relation(name: "departedJourneyStation", fields: [departureStationId], references: [identifier])
   departureStationId    Int
   departureStationName  String
-  returnStation         Station @relation(name: "returnJourneyStation", fields: [returnStationId], references: [identifier])
+  returnStation         Station? @relation(name: "returnJourneyStation", fields: [returnStationId], references: [identifier])
   returnStationId       Int
   returnStationName     String
   distance              Int

@@ -31,9 +31,6 @@ CREATE TABLE "Journey" (
 -- CreateIndex
 CREATE UNIQUE INDEX "Station_identifier_key" ON "Station"("identifier");
 
--- CreateIndex
-CREATE UNIQUE INDEX "Station_name_key" ON "Station"("name");
-
 -- AddForeignKey
 ALTER TABLE "Journey" ADD CONSTRAINT "Journey_departureStationId_fkey" FOREIGN KEY ("departureStationId") REFERENCES "Station"("identifier") ON DELETE RESTRICT ON UPDATE CASCADE;
 
